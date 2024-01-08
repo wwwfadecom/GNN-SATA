@@ -1,4 +1,4 @@
-# Graph Neural Networks Beyond Compromise Between Attribute and Topology
+# Graph Neural Networks with Soft Association between Topology and Attribute
 
 * python 3.8
 * numpy 1.20.3
