@@ -88,33 +88,6 @@ class SATA(Module):
             temp = self.lambda_2*(torch.mm(y,y.t())-self.alpha*self.EA*self.w22)
             m = self.lambda_1*0.5*self.ans(z,adj1).to_dense()
             EP_n = (temp -m)/self.lambda_2
-
-
-            # feat = F.dropout(feat, self.dropout, training=self.training)
-            # # t = torch.mm(self.w12,t)
-            # temp=torch.mm(t.t(),y)
-            # # temp = torch.mm(torch.mm(y,y.t()), y)
-            # temp = temp+torch.mm(self.alpha*adj*t+(1-self.alpha)*self.w12.mul(self.w22),y)-2*torch.mm(torch.mm(y,y.t()),y)
-            # temp = torch.mm(self.w1,temp)
-            # temp = torch.sigmoid(temp)
-            # y_n = self.lambda_2*temp+feat
-            # temp = self.alpha*adj*t+(1-self.alpha)*self.w12.mul(self.w22)
-            # # temp = torch.sigmoid(temp)
-            # z_n = torch.spmm(temp, z)
-            # temp = torch.mm(y,y.t())-(1-self.alpha)*self.w12.mul(self.w22)
-            # temp = self.lambda_2*temp
-            # m = 2*self.lambda_1*0.5*self.ans(z,adj1).to_dense()
-            # adj = adj +1e-7
-            # t_n = (temp*adj -m)/self.lambda_2/self.alpha/adj/adj/2
-
-
-            # m = self.lambda_1*0.5*self.ans(z,adj1)
-            # p0 = torch.mm(y,y.t())+self.w12.mul(self.w22)
-            # p1 = 2*self.lambda_2*adj.mul(p0)-m
-            # t_n = p1/self.lambda_2/2/adj
-            # t_n = np.nan_to_num(t_n.cpu().detach().numpy(), copy=False)
-            # t_n = torch.from_numpy(t_n).cuda()
-
             y = y_n
             z = z_n
             EP = EP_n
@@ -124,55 +97,7 @@ class SATA(Module):
         p = F.dropout(p, self.dropout, training=self.training)
         return self.w2(p)
 
-        # w21 = self.w12.mul(self.w22)
-        # feat = F.dropout(feat, self.dropout, training=self.training)
-        # # t = torch.mm(self.w12,t)
-        # # temp = torch.mm(torch.mm(y,y.t()), y)
-        # # t = torch.mm(self.w12,t)
-        # # temp = torch.mm(torch.mm(self.w21,t.t()), y)
-        # temp = torch.mm(torch.mm(w21, t), y) - torch.mm(torch.mm(y, y.t()), y)
-        # # temp = temp+torch.mm(t,y)-torch.mm(torch.mm(y,y.t()),y)
-        # temp = torch.mm(self.w1, temp)
-        # temp = torch.sigmoid(temp)
-        # y_n = self.lambda_2 * 2 * temp + feat
-        # temp = lap * t
-        # # temp = torch.sigmoid(temp)
-        # z_n = torch.spmm(temp, z)
-        # temp = 2 * self.lambda_2 * torch.mm(torch.mm(w21.t(), y), y.t())
-        # m = self.lambda_1 * 0.5 * self.ans(z, adj)
-        # t_n = (temp - m) / 2 / self.lambda_2 / torch.mm(w21.t(), w21)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-        # z: Tensor = torch.rand(self.n, self.nfeat).to(adj.device)
-        # y: Tensor = feat
-        # for i in range(self.nlayer):
-        #     feat = F.dropout(feat, self.dropout, training=self.training)
-        #     temp = torch.mm(self.w1, y)
-        #     temp = torch.mm(y, temp.t())
-        #     temp = torch.sigmoid(temp)
-        #     temp = torch.mm(temp, z)
-        #     temp = (self.lambda_2 / self.lambda_1) * temp
-        #     z_n = torch.spmm(lap, z) - temp
-        #     temp = torch.mm(z.t(), y)
-        #     temp = torch.mm(z, temp)
-        #     temp = torch.sigmoid(temp)
-        #     y_n = feat - self.lambda_2 * temp
-        #     y = y_n
-        #     z = z_n
-        # y = F.normalize(y, p=2, dim=1)
-        # z = F.normalize(z, p=2, dim=1)
-        # p = torch.cat((z, y), dim=1)
-        # p = F.dropout(p, self.dropout, training=self.training)
-        # return self.w2(p)
