@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="yyc@172.21.13.103:35813" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="yyc@172.21.13.103:35813">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/yyc/2023/GNN-SATA" local="$PROJECT_DIR$/../GNN-SATA" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="yyc@172.21.13.176:35813">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/yyc/2022/GNNBC-master" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="yyc@172.21.13.199:35813">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/yyc/GNNBC" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="zq2@172.21.13.103:35813">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
