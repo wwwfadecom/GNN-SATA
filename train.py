@@ -102,8 +102,9 @@ def run():
             test_acc,
             test_loss
         )
-        if test_acc>max:
-            max = test_acc
+        val_acc = validate(model, val_mask)
+        if val_acc>max:
+            max = val_acc
             print(max)
             # maxadj = add
         print(message)
