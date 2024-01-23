@@ -88,19 +88,16 @@ def run():
         if tolerate >= patience:
             break
         train_acc, train_loss= train(model, optimizer, train_mask)
-        test_acc, test_loss = test(model, test_mask)
         if train_loss < best_loss:
             tolerate = 0
             best_loss = train_loss
         else:
             tolerate += 1
-        message = "Epoch={:<4} | Tolerate={:<3} | Train_acc={:.4f} | Train_loss={:.4f} | Test_acc={:.4f} | Test_loss={:.4f}".format(
+        message = "Epoch={:<4} | Tolerate={:<3} | Train_acc={:.4f} | Train_loss={:.4f}".format(
             epoch,
             tolerate,
             train_acc,
             train_loss,
-            test_acc,
-            test_loss
         )
         val_acc = validate(model, val_mask)
         if val_acc>max:
