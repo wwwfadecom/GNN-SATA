@@ -1,4 +1,4 @@
-# Graph Neural Networks Beyond Compromise Between Attribute and Topology
+# GNN-SATA
 
 * python 3.8
 * numpy 1.20.3
